@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .i-am-green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>3. Event Listeners</h2>
+        <p>Abre las herramientas de desarrollo. Cuando hacemos click en el siguiente botón, deberíamos ver por consola
+            "you clicked me!". <button @click="youClickedMe">Click
+                me!</button> </p>
+        <p>
+            Haz lo mismo para el siguiente botón, pero para un evento diferente. Me gustaría que al hacer <strong>doble
+                click</strong>
+            encima del botón, ejecutara la función <em>youClickedMe</em> <button>Double click on me!</button>
+        <p>
+            Fijate en el valor inicial de la variable <strong>numClicks</strong>. Incrementa su valor cada vez que
+            hagamos click en cualquiera de los botones anteriores <span style="color: blue">{{ numClicks }}</span>
+        </p>
+        <p>Yo soy un gato. Me gustaría que al hacerme click, me ocultaras. Ayuda: <a
+                href="https://vue3-spanish.netlify.app/guide/essentials/class-and-style.html#vinculacion-de-estilos-en-linea">Estilos
+                en línea</a><img width="200" src="https://cdn2.thecatapi.com/images/MTcxMjM2Mg.gif"
+                :style="{display: mustHideCat? 'none': 'block'}" src="" alt=""></p>
+
+        <p>Yo soy un perro. Me gustaría que me ocultaras <strong>Cuando el contador de clicks de más arriba llegara a
+                5! Pista: tienes que establecer adecuadamente la propiedad dinámica :style. NO necesitas variables
+                nuevas ni eventos nuevos!</strong> <img width="200"
+                src="https://cdn2.thedogapi.com/images/rJ6iQeqEm_1280.jpg" src="" alt=""></p>
+        <h3>Ejercicio final</h3>
+        <p>Fíjate en el array <strong>randomNumbers</strong> declarada en setup()</p>
+        <ol>
+            <li>Muestra el los valores del array en esta misma línea. Acuerdate que debes pasar todas las variables en
+                la plantilla en la sentencia return: </li>
+            <li>Muestra a continuación el número de elementos del array: </li>
+            <li>Uso el método de array adecuado para convertir en array en un stirng y separar cada elemento del array
+                con un guión a continuación: </li>
+            <li>Cada vez que hagamos click en este botón, debemos añadir un número aleatorio al array entre 0 y 100:
+                <button>Añadir número</button>
+            </li>
+            <li>MEGA BONUS: Usa una expresión JavaScript entre mostaches para indicar, usando adecuadamente el metodo
+                some, Si existe el número 50 en el array</li>
+        </ol>
+    </div>
+
+    <script type="module">
+        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp({
+            setup() {
+
+                const numClicks = ref(0)
+                const mustHideCat = ref(false)
+                const randomNumbers = ref([1, 2, 3])
+
+                const youClickedMe = () => {
+                    // Apartado 1
+                }
+
+                return {
+                    youClickedMe,
+                    numClicks,
+                    mustHideCat,
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
