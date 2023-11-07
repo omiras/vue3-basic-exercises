@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .i-am-green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>2. Attribute Bindings</h2>
+        <p :class="primary">Hola! Modifica el valor de la variable <em>primary</em> para que aplique la clase CSS que va
+            a convertir en verde el color de la letra</p>
+        <p>Como ves, soy un triste botón deshabilitado. Cambia el valor inicial de la variable <em>isDisabled</em> para
+            habilitarme. <button :disabled="isDisabled">Habilitame porfa</button> </p>
+        <p>Vincula adecuadamente el atributo adecuado a la siguiente imagen, para establecer el origen de la imagen en
+            función del valor de la variable <em>srcImage</em><img :src="srcImage" alt="soy un gato creeme"></p>
+    </div>
+
+    <script type="module">
+        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp({
+            setup() {
+                const primary = ref('i-am-green') // Modificamos el valor a 'i-am-green' para aplicar la clase CSS.
+                const isDisabled = ref(false) // Cambiamos el valor inicial a 'false' para habilitar el botón.
+                const srcImage = ref('https://cdn2.thecatapi.com/images/417.jpg')
+
+                return {
+                    primary,
+                    isDisabled,
+                    srcImage
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
