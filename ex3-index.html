@@ -21,19 +21,20 @@
         <p>
             Haz lo mismo para el siguiente botón, pero para un evento diferente. Me gustaría que al hacer <strong>doble
                 click</strong>
-            encima del botón, ejecutara la función <em>youClickedMe</em> <button>Double click on me!</button>
+            encima del botón, ejecutara la función <em>youClickedMe</em> <button @dblclick="youClickedMe">Double click
+                on me!</button>
         <p>
             Fijate en el valor inicial de la variable <strong>numClicks</strong>. Incrementa su valor cada vez que
             hagamos click en cualquiera de los botones anteriores <span style="color: blue">{{ numClicks }}</span>
         </p>
-        <p>Yo soy un gato. Me gustaría que al hacerme click, me ocultaras. Ayuda: <a
+        <p @click="hideCat">Yo soy un gato. Me gustaría que al hacerme click, me ocultaras. Ayuda: <a
                 href="https://vue3-spanish.netlify.app/guide/essentials/class-and-style.html#vinculacion-de-estilos-en-linea">Estilos
                 en línea</a><img width="200" src="https://cdn2.thecatapi.com/images/MTcxMjM2Mg.gif"
                 :style="{display: mustHideCat? 'none': 'block'}" src="" alt=""></p>
 
         <p>Yo soy un perro. Me gustaría que me ocultaras <strong>Cuando el contador de clicks de más arriba llegara a
                 5! Pista: tienes que establecer adecuadamente la propiedad dinámica :style. NO necesitas variables
-                nuevas ni eventos nuevos!</strong> <img width="200"
+                nuevas ni eventos nuevos!</strong> <img :style="{display: hideDogOrNot()? 'none': 'block'}" width="200"
                 src="https://cdn2.thedogapi.com/images/rJ6iQeqEm_1280.jpg" src="" alt=""></p>
         <h3>Ejercicio final</h3>
         <p>Fíjate en el array <strong>randomNumbers</strong> declarada en setup()</p>
@@ -63,12 +64,26 @@
 
                 const youClickedMe = () => {
                     // Apartado 1
+                    console.log("You clicked me!");
+                    numClicks.value++;
+                }
+
+                const hideCat = () => {
+                    mustHideCat.value = true;
+                }
+
+                const hideDogOrNot = () => {
+                    return {
+
+                    }
                 }
 
                 return {
                     youClickedMe,
                     numClicks,
                     mustHideCat,
+                    hideCat,
+                    hideDogOrNot
                 }
             }
         }).mount('#app')
