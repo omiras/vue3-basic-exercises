@@ -10,8 +10,9 @@
 <body>
     <div id="app">
         <h2>1. Declarative Rendering</h2>
-        <p>Hola! A continuación me gustaría ver el valor de la variable <strong>name</strong></p>
-        <p>Convierte el string dentro de los mostachos en mayúsculas <strong>{{ "quieroSerMayusculas"}}</strong></p>
+        <p>Hola! A continuación me gustaría ver el valor de la variable <strong>{{ name }}</strong></p>
+        <p>Convierte el string dentro de los mostachos en mayúsculas <strong>{{ "quieroSerMayusculas".toUpperCase()
+                }}</strong></p>
         <p>Mi apellido es {{ surname }}, pero sin embargo, no puedo ver el valor de esta variable. ¿Por qué? Pista: mira
             la Console de las herramientas de desarrollo</p>
     </div>
@@ -23,8 +24,13 @@
             setup() {
                 const name = ref('Alexander')
                 const surname = ref('Coplowitz')
+
+                // Siempre que quiero actualizar o consultar una variable declarada con ref(), tenemos que hacerlo a través de su propiedad value
+                surname.value = "Kardashian"
+
                 return {
-                    name
+                    name,
+                    surname
                 }
             }
         }).mount('#app')

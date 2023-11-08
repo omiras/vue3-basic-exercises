@@ -21,7 +21,7 @@
         <p>Como ves, soy un triste botón deshabilitado. Cambia el valor inicial de la variable <em>isDisabled</em> para
             habilitarme. <button :disabled="isDisabled">Habilitame porfa</button> </p>
         <p>Vincula adecuadamente el atrbuto adecuado a la siguiente imagen, para establecer el origen de la imagen en
-            función del valor de la variable <em>srcImage</em><img src="" alt="soy un gato creeme"></p>
+            función del valor de la variable <em>srcImage</em><img :src="srcImage" alt="soy un gato creeme"></p>
     </div>
 
     <script type="module">
@@ -29,8 +29,8 @@
 
         createApp({
             setup() {
-                const primary = ref('i-am-verde')
-                const isDisabled = ref(true)
+                const primary = ref('i-am-green')
+                const isDisabled = ref(false)
                 const srcImage = ref('https://cdn2.thecatapi.com/images/417.jpg')
 
                 return {
